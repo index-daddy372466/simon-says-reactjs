@@ -157,21 +157,20 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
     autoTextFn(txt,subRef.current)
     if(index === 13)subRef.current.style='color:green'
     else subRef.current.style='color:red'
-
-    setIndex(0)
     playRef.current.classList.remove('disabled')
     controlRef.current.classList.remove('centered')
     controlRef.current.classList.add('space-evenly')
     setDisabled(true)
     setComp_speed(start_count)
     setComp_tile_delay(comp_speed/2)
-    setLevel(0)
     setComp([])
     human = []
     setTimeout(()=>{
+      setLevel(0)
+      setIndex(0)
       setGameStarted(false)
       subRef.current.style=`color:${bg_count%2===0 ? `var(--black-color)` : `var(--white-color)`}`
-    },index === 13 ? 3000 : 1500)
+    },3000)
 
   }
   function clicked(col){
