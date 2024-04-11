@@ -1,6 +1,7 @@
 
 // const insertData = require('../insertData.js') 
-const clearData = require('../clearData.js') 
+const clearData = require('../clearData.js')
+const insertData = require('../insertData.js') 
 const path = require('path')
 
 module.exports = function(app,pool){
@@ -28,11 +29,11 @@ app.route("/").get((req,res)=>{
         const { round } = req.body;
         console.log(round)
         // test: insert color into array of colors
-        const insertColor = await pool.query("insert into gameboard(color) values(ARRAY[$1])",[round])
+        insertData(round)
     })
     app.route('/fin-round').post(async(req,res)=>{
         const { round } = req.body;
-        const insertColor = await pool.query("insert into gameboard(color) values(ARRAY[$1])",[round])
+        insertData(round)
         const getNumOfRounds = await pool.query("select count(round) from gameboard;")
         let count = getNumOfRounds.rows[0].count
         console.log(round)

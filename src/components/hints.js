@@ -22,7 +22,7 @@ const handleHint = () => {
       if(x===arr.length-1){
         setTimeout(()=>{
           // item.classList.add("trans-border")
-          btns.forEach(btn=>{
+          btns.forEach((btn)=>{
             return btn.classList.remove("color-hidden")
           })
           setTimeout(()=>{
@@ -39,6 +39,15 @@ const handleHint = () => {
           btn.classList.add('outline')
           btn.classList.remove("color-hidden")
         })
+        // settimeout to have outlines disappear
+        setTimeout(()=>{
+          btns.forEach((btn,index)=>{
+            btn.classList.remove('outline')
+            btn.classList.add("color-hidden")
+          })
+        },3000)
+          
+        
       }
     })
   }

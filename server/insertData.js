@@ -1,8 +1,7 @@
 const { pool } = require('./db.js')
 
-module.exports = async function(){
+module.exports = async function(round){
     // get fixed data
-  let insertColors = await pool.query("insert into gameboard(color) values('red'),('blue'),('green');")
-    console.log(insertColors)
+    const insertColor = await pool.query("insert into gameboard(color) values(ARRAY[$1])",[round])
 }
 
