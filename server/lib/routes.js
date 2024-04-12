@@ -37,7 +37,7 @@ app.route("/").get((req,res)=>{
         let count = getNumOfRounds.rows[0].count
         console.log(round)
         console.log(count)
-        res.redirect("/")
+        res.sendFile(__dirname+'/index')
     })
     // insert & clear data in gameboard table
     // app.route("/insert-data").get(async(req,res)=>{

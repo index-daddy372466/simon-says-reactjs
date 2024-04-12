@@ -64,7 +64,6 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
     
     human.push(e.target.id)
     setIndex(index+1)
-    let coHu = [...human]
 
     // if the user messes up
     if(human[index]!==comp[index] && index < 14){
@@ -94,7 +93,7 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
         appendTiles(c_tile,comp_li,false)
 
       gameOver('GAME OVER')
-      postFetch('/fin-round',{round:[...coHu]}).then((data)=>{
+      postFetch('/fin-round',{round:[...human]}).then((data)=>{
         console.log(data)
       })
     }
