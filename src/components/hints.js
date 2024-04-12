@@ -1,6 +1,6 @@
 import { useEffect, React } from 'react'
 
-export default function Hints({hintsRef,hints,setHints,historyRef,level}) {
+export default function Hints({hintsRef,hints,setHints,historyRef,level,gameStarted}) {
 // use Effect
   useEffect(()=>{
     if(hints < 1){
@@ -20,6 +20,9 @@ export default function Hints({hintsRef,hints,setHints,historyRef,level}) {
 const handleHint = () => {
   let arr = [...historyRef.current.children] || [];
   if(arr.length > 0){
+
+
+
     arr.forEach((item,x)=>{
       let btns = [...item.children];
 
@@ -38,22 +41,27 @@ const handleHint = () => {
         },250)
       }
       else{
-        
-        btns.forEach(btn=>{
-          btn.classList.add('outline')
-          btn.classList.remove("color-hidden")
-        })
-        // settimeout to have outlines disappear
-        setTimeout(()=>{
-          btns.forEach((btn,index)=>{
-            btn.classList.remove('outline')
-            btn.classList.add("color-hidden")
+        if(gameStarted){
+          btns.forEach(btn=>{
+            btn.classList.add('outline')
+            btn.classList.remove("color-hidden")
           })
-        },3000)
+          // settimeout to have outlines disappear
+          setTimeout(()=>{
+            btns.forEach((btn,index)=>{
+              btn.classList.remove('outline')
+              btn.classList.add("color-hidden")
+            })
+          },3000)
+        }
+        
           
         
       }
     })
+
+
+
   }
   
 return hints > 0 && level > 1 ? setHints(hints - 1) :  setHints(hints)

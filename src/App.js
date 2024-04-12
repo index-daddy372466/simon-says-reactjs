@@ -235,7 +235,7 @@ function App() {
   return (
     <div className="App">
       <Moves {...{index,level, movesRef}}/>
-      <Hints {...{hintsRef,hints,setHints,historyRef,level}}/>
+      <Hints {...{hintsRef,hints,setHints,historyRef,level,gameStarted}}/>
       <History {...{historyRef}}/>
       <Toggle {...{backgroundRef,climateChange}}/>
       <Header {...{ headingRef, subRef }} />
