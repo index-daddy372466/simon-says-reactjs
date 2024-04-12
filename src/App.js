@@ -184,7 +184,7 @@ function App() {
       resetRef.current.style='opacity:1;transition:.25s;'
       resetRef.current.classList.remove('no-pointer')
       autoTextFn('Your turn', subRef.current)
-    }, level > 1 ? ((((level % 8) / comp_speed * 100) + 2) * 1000) + 1500 : ((((level % 8) / comp_speed * 100) + 2) * 1000))
+    }, level > 1 ? ((((level % comp.length) / comp_speed * 100) + 2) * 1000) + 1500 : ((((level % comp.length) / comp_speed * 100) + 2) * 1000))
   }
   const activate = (array) => {
     resetRef.current.style='opacity:.25;transition:.25s;'
