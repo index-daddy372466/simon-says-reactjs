@@ -1,6 +1,6 @@
 import { useEffect, React } from 'react'
 
-export default function Hints({hintsRef,hints,setHints,historyRef,level,gameStarted}) {
+export default function Hints({popOutRef,hintsRef,hints,setHints,historyRef,level,gameStarted}) {
 // use Effect
   useEffect(()=>{
     if(hints < 1){
@@ -20,8 +20,6 @@ export default function Hints({hintsRef,hints,setHints,historyRef,level,gameStar
 const handleHint = () => {
   let arr = [...historyRef.current.children] || [];
   if(arr.length > 0){
-
-
 
     arr.forEach((item,x)=>{
       let btns = [...item.children];
@@ -63,12 +61,22 @@ const handleHint = () => {
 
 
   }
+  else{
+
+    popOutRef.current.classList.remove("pop-in")
+    popOutRef.current.classList.add("pop-out")
+    setTimeout(()=>{
+      popOutRef.current.classList.add("pop-in")
+      popOutRef.current.classList.remove("pop-out")
+    },3000)
+  }
   
 return hints > 0 && level > 1 ? setHints(hints - 1) :  setHints(hints)
 }
 
   return (
     <div id={"hints-container"}>
+    <div ref={popOutRef} className="pop-in hint-message">Hints are available after round 1<h4> </h4></div>
         <ul className="hints-btn-container his-show" ref={hintsRef}>
             {/* Schema for hints */}
             {

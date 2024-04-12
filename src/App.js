@@ -55,6 +55,7 @@ function autoTextFn(text, heading) {
 }
 function App() {
   //HTML References
+  const popOutRef = useRef();
   const movesRef = useRef();
   const hintsRef = useRef();
   const tilesRef = useRef()
@@ -68,7 +69,7 @@ function App() {
   const historyRef = useRef();
   let start_count = 750
   
-  //states
+  //states 
   const [hints,setHints] = useState(3);
   const [level, setLevel] = useState(0)
   const [comp, setComp] = useState([])
@@ -235,7 +236,7 @@ function App() {
   return (
     <div className="App">
       <Moves {...{index,level, movesRef}}/>
-      <Hints {...{hintsRef,hints,setHints,historyRef,level,gameStarted}}/>
+      <Hints {...{popOutRef,hintsRef,hints,setHints,historyRef,level,gameStarted}}/>
       <History {...{historyRef}}/>
       <Toggle {...{backgroundRef,climateChange}}/>
       <Header {...{ headingRef, subRef }} />

@@ -50,7 +50,7 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
           allTiles.forEach((til,index2)=>{
             setTimeout(()=>{
               til.classList.remove("color-hidden")
-            },150*(index2+1))
+            },50*(index2+1))
           })
           ti.classList.remove("color-hidden")
         }
@@ -68,9 +68,7 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
 
     // if the user messes up
     if(human[index]!==comp[index] && index < 14){
-      postFetch('/tracker',{tracker:e.target.id}).then((data)=>{
-        console.log(data)
-      })
+      
       let li_tiles = []
       let c_tile = []
       for(let i = 0; i < human.length; i++){
