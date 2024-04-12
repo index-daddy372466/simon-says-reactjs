@@ -23,7 +23,7 @@ app.route("/").get((req,res)=>{
     app.route('/tracker').post((req,res)=>{
         const { tracker } = req.body
         console.log(tracker)
-        res.redirect('/')
+        // res.redirect('/')
     })
     app.route('/round').post(async(req,res)=>{
         const { round } = req.body;

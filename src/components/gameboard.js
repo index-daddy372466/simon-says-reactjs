@@ -24,6 +24,7 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
         referrerPolicy: "no-referrer",
         body:JSON.stringify(d),
       })
+      // testing postFetch
       return response.json()
   }
   const appendTiles = (t,li,bool) => {
