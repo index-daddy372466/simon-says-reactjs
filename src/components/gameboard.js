@@ -61,15 +61,16 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
     // let audio = soundRef.current
     // console.log(comp)
     clicked(e.target.id)
-    postFetch('/tracker',{tracker:e.target.id}).then((data)=>{
-      console.log(data)
-    })
+    
     human.push(e.target.id)
     setIndex(index+1)
     let coHu = [...human]
 
     // if the user messes up
     if(human[index]!==comp[index] && index < 14){
+      postFetch('/tracker',{tracker:e.target.id}).then((data)=>{
+        console.log(data)
+      })
       let li_tiles = []
       let c_tile = []
       for(let i = 0; i < human.length; i++){
@@ -101,7 +102,10 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
     }
 
     // if the user clears round
-    if(human[index]===comp[index] && human.length===comp.length-1 && level < 14){
+    else if(human[index]===comp[index] && human.length===comp.length-1 && level < 14){
+      postFetch('/tracker',{tracker:e.target.id}).then((data)=>{
+        console.log(data)
+      })
       movesRef.current.classList.add("his-hide")
         movesRef.current.classList.remove("his-show")
       if(level > 3 && hints < 3 && level % 4 === 0){

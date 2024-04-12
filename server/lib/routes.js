@@ -8,8 +8,7 @@ module.exports = function(app,pool){
 
 
 app.route("/").get((req,res)=>{
-        console.log("page loads")
-        res.json({test:true})
+    res.sendFile(__dirname+'/index')
     })
 // get all 
     app.route("/clear-data").get(async(req,res)=>{
