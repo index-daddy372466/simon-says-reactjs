@@ -3,17 +3,15 @@ import { useEffect,React } from 'react'
 
 let human = []
 export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,bg_count,tiles,tilesRef,start_count,comp_speed,setComp_speed,setComp_tile_delay,comp,setComp,index,setIndex,playRound,subRef,autoTextFn,setGameStarted,setLevel,playRef,controlRef,setDisabled,level}) {
+  
+  // useEffects
   useEffect(()=>{
     if(level < 1) {
       setDisabled(true)
     }// eslint-disable-next-line
   },[level])
-  // useEffect(()=>{
-  //   fetch('/clear-data').then(res=>res.json()).then(data=>{
-  //     console.log(data)
-  //   })
-  // },[])
   //_____________________________________
+  // action creators
   const postFetch = async(api,d) => {
       const response = await fetch(api,
       {
@@ -51,17 +49,14 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
           allTiles.forEach((til,index2)=>{
             setTimeout(()=>{
               til.classList.remove("color-hidden")
-            },250*(index2+1))
+            },150*(index2+1))
           })
           ti.classList.remove("color-hidden")
         }
       },750 * (xray)+1)
     })
   }
-
-  //________________________________________
-
-  function clickFn(e){
+  const clickFn = (e) => {
     // let audio = soundRef.current
     // console.log(comp)
     clicked(e.target.id)
@@ -105,7 +100,7 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
     }
 
     // if the user clears round
-    if(human[index]===comp[index] && human.length===comp.length-1 && index < 15){
+    if(human[index]===comp[index] && human.length===comp.length-1 && level < 14){
       movesRef.current.classList.add("his-hide")
         movesRef.current.classList.remove("his-show")
       if(level > 3 && hints < 3 && level % 4 === 0){
@@ -144,18 +139,17 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
       }
       if(index === 14){
         gameOver('you win!')
-        postFetch('/round',{round:[...human]}).then((data)=>{
-          console.log(data)
+        postFetch('/fin-round',{round:[...human]}).then((data)=>{
         })
         }
 
     }
-  function gameOver(txt){
+  const gameOver = (txt) => {
     resetRef.current.style='pointer-events:none'
     start_count=750
     setDisabled(true)
     autoTextFn(txt,subRef.current)
-    if(index === 13)subRef.current.style='color:green'
+    if(index === 14)subRef.current.style='color:green'
     else subRef.current.style='color:red'
     playRef.current.classList.remove('disabled')
     controlRef.current.classList.remove('centered')
@@ -173,7 +167,7 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
     },3000)
 
   }
-  function clicked(col){
+  const clicked = (col) => {
     let elem = document.getElementById(`${col}`)
         elem.classList.remove('deactivated-ready')
       setTimeout(()=>{
@@ -181,6 +175,8 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
       },150)
 
   }
+
+  //________________________________________
   return (
     <>
       <div id="gameboard-container" ref={tilesRef}>

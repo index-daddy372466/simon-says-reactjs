@@ -84,6 +84,7 @@ padding:.25rem;
   position: absolute;
   
   bottom:50px;
+  left:2rem;
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid black;

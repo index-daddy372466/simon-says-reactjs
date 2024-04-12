@@ -9,6 +9,9 @@ import Toggle from './components/toggle.js';
 import History from './components/history.js'
 import Hints from './components/hints.js'
 import Moves from './components/moves.js'
+import reportWebVitals from './reportWebVitals';
+
+// reportWebVitals(console.log)
 //dataset
 let tiles = [{
   id: 1,
@@ -34,6 +37,7 @@ let tiles = [{
   alternate: 'tan',
   sound: './sounds/beep-09.mp3'
 }]
+
 //Customized functions
 function autoTextFn(text, heading) {
   text = [...text]//text.split``
@@ -134,6 +138,7 @@ function App() {
     }
   }, [disabled])
   //____________________________________________
+
   //action creators
   const randomColor = () => {
     let random = color[Math.floor(Math.random() * color.length)]
@@ -271,7 +276,6 @@ function App() {
         setBg,
         bg_count
       }} />
-
       <Controls {...{
         resetRef,//useRef()
         controlRef,

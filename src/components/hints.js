@@ -1,7 +1,7 @@
 import { useEffect, React } from 'react'
 
 export default function Hints({hintsRef,hints,setHints,historyRef,level}) {
-
+// use Effect
   useEffect(()=>{
     if(hints < 1){
       hintsRef.current.parentNode.classList.remove("his-show")
@@ -13,6 +13,10 @@ export default function Hints({hintsRef,hints,setHints,historyRef,level}) {
     }
     // eslint-disable-next-line
   },[hints])
+
+//_________________________________________________
+
+// action creators
 const handleHint = () => {
   let arr = [...historyRef.current.children] || [];
   if(arr.length > 0){
@@ -66,15 +70,6 @@ return hints > 0 && level > 1 ? setHints(hints - 1) :  setHints(hints)
                   </div>
                 ))
             }
-            {/* <div className="btn-cover">
-                <div className="hints-btn"></div>
-            </div>
-            <div className="btn-cover">
-                <div className="hints-btn"></div>
-            </div>
-            <div className="btn-cover">
-                <div className="hints-btn"></div>
-            </div> */}
         </ul>
     </div>
   )
