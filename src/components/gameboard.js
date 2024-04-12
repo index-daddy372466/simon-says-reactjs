@@ -153,9 +153,9 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
     autoTextFn(txt,subRef.current)
     if(index === 14)subRef.current.style='color:green'
     else subRef.current.style='color:red'
-    playRef.current.classList.remove('disabled')
-    controlRef.current.classList.remove('centered')
-    controlRef.current.classList.add('space-evenly')
+    // playRef.current.classList.remove('disabled')
+    // controlRef.current.classList.remove('centered')
+    // controlRef.current.classList.add('space-evenly')
     setDisabled(true)
     setComp_speed(start_count)
     setComp_tile_delay(comp_speed/2)
@@ -166,7 +166,7 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
       // setIndex(0)
       setGameStarted(false)
       subRef.current.style=`color:${bg_count%2===0 ? `var(--black-color)` : `var(--white-color)`}`
-    },1000)
+    },1750)
 
   }
   const clicked = (col) => {
