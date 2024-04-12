@@ -67,7 +67,7 @@ const handleHint = () => {
             })
           },3000)
         }
-        else{
+        if(!gameStarted && arr){
           popOutRef.current.textContent = 'Game Over'
           popOutRef.current.classList.remove("pop-in")
           popOutRef.current.classList.add("pop-out")
