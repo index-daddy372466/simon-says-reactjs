@@ -251,7 +251,7 @@ header{
   border:.25px solid #333;
 }
  .tile:hover{
-  transition: .25s;
+  transition: .05s;
   transform:scale(.98);
 }
 .push-down{

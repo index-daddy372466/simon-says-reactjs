@@ -107,10 +107,13 @@ function App() {
       }
     }
     else {
+      
       [...tilesRef.current.children].forEach(t=>{
         t.classList.remove('deactivated-ready')
         t.classList.add('deactivated-default')
       })
+      setLevel(0)
+      setIndex(0)
       resetRef.current.classList.add('disabled')
       resetRef.current.classList.add('no-pointer')
       setComp([...comp, randomColor()])//load your colors before the game starts

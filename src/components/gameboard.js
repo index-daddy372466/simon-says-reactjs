@@ -163,11 +163,11 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
     setComp([])
     human = []
     setTimeout(()=>{
-      setLevel(0)
-      setIndex(0)
+      // setLevel(0)
+      // setIndex(0)
       setGameStarted(false)
       subRef.current.style=`color:${bg_count%2===0 ? `var(--black-color)` : `var(--white-color)`}`
-    },3000)
+    },1000)
 
   }
   const clicked = (col) => {
