@@ -37,7 +37,7 @@ app.route("/").get((req,res)=>{
         let count = getNumOfRounds.rows[0].count
         console.log(round)
         console.log(count)
-        res.sendFile(__dirname+'/index')
+        res.sendFile(__dirname,'/index.js')
     })
     // insert & clear data in gameboard table
     // app.route("/insert-data").get(async(req,res)=>{
@@ -53,7 +53,7 @@ app.route("/").get((req,res)=>{
     // This prevents request issues from occurring.
     // Since build is all static, do not forget to run "npm run build" ("react-scripts build") before running node server
     app.get("/*", async function (req, res) {
-        res.sendFile(path.resolve(__dirname, '../../build','index.html'));
+        res.sendFile(__dirname,'/index.js')
     })
 
 }
