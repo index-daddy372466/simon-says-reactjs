@@ -7,9 +7,9 @@ const { Pool } = require('pg');
         password: process.env.PD,
         port: process.env.DBP,
         host:process.env.DBH,
-        ssl:{
-            rejectUnauthorized: false,
-        }
+        // ssl:{
+        //     rejectUnauthorized: false,
+        // }
     })
 
 // const getRows = async (pool) => {

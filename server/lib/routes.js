@@ -8,7 +8,7 @@ module.exports = function(app,pool){
 
 
 app.route("/").get((req,res)=>{
-    res.sendFile(__dirname+'/index')
+    res.sendFile(__dirname,'/index.js')
     })
 // get all 
     app.route("/clear-data").get(async(req,res)=>{

@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.14 (Debian 13.14-0+deb11u1)
--- Dumped by pg_dump version 13.14 (Debian 13.14-0+deb11u1)
+-- Dumped from database version 13.16 (Debian 13.16-0+deb11u1)
+-- Dumped by pg_dump version 13.16 (Debian 13.16-1.pgdg110+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: gameboard; Type: TABLE; Schema: public; Owner: kylestech95
+-- Name: gameboard; Type: TABLE; Schema: public; Owner: Daddy
 --
 
 CREATE TABLE public.gameboard (
@@ -30,10 +30,10 @@ CREATE TABLE public.gameboard (
 );
 
 
-ALTER TABLE public.gameboard OWNER TO kylestech95;
+ALTER TABLE public.gameboard OWNER TO "Daddy";
 
 --
--- Name: gameboard_round_seq; Type: SEQUENCE; Schema: public; Owner: kylestech95
+-- Name: gameboard_round_seq; Type: SEQUENCE; Schema: public; Owner: Daddy
 --
 
 CREATE SEQUENCE public.gameboard_round_seq
@@ -45,42 +45,39 @@ CREATE SEQUENCE public.gameboard_round_seq
     CACHE 1;
 
 
-ALTER TABLE public.gameboard_round_seq OWNER TO kylestech95;
+ALTER TABLE public.gameboard_round_seq OWNER TO "Daddy";
 
 --
--- Name: gameboard_round_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kylestech95
+-- Name: gameboard_round_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Daddy
 --
 
 ALTER SEQUENCE public.gameboard_round_seq OWNED BY public.gameboard.round;
 
 
 --
--- Name: gameboard round; Type: DEFAULT; Schema: public; Owner: kylestech95
+-- Name: gameboard round; Type: DEFAULT; Schema: public; Owner: Daddy
 --
 
 ALTER TABLE ONLY public.gameboard ALTER COLUMN round SET DEFAULT nextval('public.gameboard_round_seq'::regclass);
 
 
 --
--- Data for Name: gameboard; Type: TABLE DATA; Schema: public; Owner: kylestech95
+-- Data for Name: gameboard; Type: TABLE DATA; Schema: public; Owner: Daddy
 --
 
 COPY public.gameboard (round, color) FROM stdin;
-1	{"{\\"red\\"}"}
-2	{"{\\"red\\",\\"red\\"}"}
-3	{"{\\"red\\",\\"red\\",\\"yellow\\"}"}
 \.
 
 
 --
--- Name: gameboard_round_seq; Type: SEQUENCE SET; Schema: public; Owner: kylestech95
+-- Name: gameboard_round_seq; Type: SEQUENCE SET; Schema: public; Owner: Daddy
 --
 
-SELECT pg_catalog.setval('public.gameboard_round_seq', 3, true);
+SELECT pg_catalog.setval('public.gameboard_round_seq', 1, false);
 
 
 --
--- Name: gameboard gameboard_pkey; Type: CONSTRAINT; Schema: public; Owner: kylestech95
+-- Name: gameboard gameboard_pkey; Type: CONSTRAINT; Schema: public; Owner: Daddy
 --
 
 ALTER TABLE ONLY public.gameboard
