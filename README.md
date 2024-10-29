@@ -1,4 +1,4 @@
-## Snake / Snek Game
+## Simon Says
 Classic Simon Says created with ReactJS. 
 The object of the game is to copy Simon & win as many rounds as possible.
 Users receive 3 hints to assist with memory.
