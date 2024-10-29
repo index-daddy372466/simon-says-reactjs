@@ -5,7 +5,6 @@ const Sequelize = require('sequelize').Sequelize
 if(process.env.TYPE=='production'){
     const sequelize = new Sequelize(process.env.URI,{
         dialect:'postgres',
-        logging:'false'
     })
     sequelize.sync().then(()=>{
                 console.log('you are connected to pg')
