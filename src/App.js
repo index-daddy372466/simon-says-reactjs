@@ -152,7 +152,7 @@ function App() {
     gameInitialized(e)
     playRound()
     resetRef.current.classList.add('no-pointer')
-    fetch('/clear-data')
+    // fetch('/clear-data')
     let arr = [...historyRef.current.children]
     arr.forEach(li=>{
       let children = [...li.children]

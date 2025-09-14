@@ -12,21 +12,21 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
   },[level])
   //_____________________________________
   // action creators
-  const postFetch = async(api,d) => {
-      const response = await fetch(api,
-      {
-        method:'POST',
-        mode:"cors",
-        cache:"no-cache",
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: { "Content-Type": "application/json"},
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer",
-        body:JSON.stringify(d),
-      })
-      // testing postFetch
-      return response.json()
-  }
+  // const postFetch = async(api,d) => {
+  //     const response = await fetch(api,
+  //     {
+  //       method:'POST',
+  //       mode:"cors",
+  //       cache:"no-cache",
+  //       credentials: "same-origin", // include, *same-origin, omit
+  //       headers: { "Content-Type": "application/json"},
+  //       redirect: "follow", // manual, *follow, error
+  //       referrerPolicy: "no-referrer",
+  //       body:JSON.stringify(d),
+  //     })
+  //     // testing postFetch
+  //     return response.json()
+  // }
   const appendTiles = (t,li,bool) => {
     let allTiles = document.querySelectorAll(".color")
     return [...t].forEach((ti,xray)=>{
@@ -93,16 +93,16 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
         appendTiles(c_tile,comp_li,false)
 
       gameOver('GAME OVER')
-      postFetch('/fin-round',{round:[...human]}).then((data)=>{
-        console.log(data)
-      })
+      // postFetch('/fin-round',{round:[...human]}).then((data)=>{
+      //   console.log(data)
+      // })
     }
 
     // if the user clears round
     else if(human[index]===comp[index] && human.length===comp.length-1 && level < 14){
-      postFetch('/tracker',{tracker:e.target.id}).then((data)=>{
-        console.log(data)
-      })
+      // postFetch('/tracker',{tracker:e.target.id}).then((data)=>{
+      //   console.log(data)
+      // })
       movesRef.current.classList.add("his-hide")
         movesRef.current.classList.remove("his-show")
       if(level > 3 && hints < 3 && level % 4 === 0){
@@ -125,10 +125,10 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
       appendTiles(li_tiles,li,true)
 
 
-      postFetch('/round',{round:[...human]}).then((data)=>{
-        console.log(data)
+      // postFetch('/round',{round:[...human]}).then((data)=>{
+      //   console.log(data)
 
-      })
+      // })
       resetRef.current.style='pointer-events:none;opacity:.25;transition:.25s;'
       // console.log(human)
       human=[]
@@ -141,8 +141,8 @@ export default function Gameboard({movesRef,hints,setHints,historyRef,resetRef,b
       }
       if(index === 14){
         gameOver('you win!')
-        postFetch('/fin-round',{round:[...human]}).then((data)=>{
-        })
+        // postFetch('/fin-round',{round:[...human]}).then((data)=>{
+        // })
         }
 
     }
