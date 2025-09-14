@@ -67,9 +67,6 @@ ALTER TABLE ONLY public.gameboard ALTER COLUMN round SET DEFAULT nextval('public
 --
 
 COPY public.gameboard (round, color) FROM stdin;
-1	{"{\\"yellow\\"}"}
-2	{"{\\"yellow\\",\\"red\\"}"}
-3	{"{\\"yellow\\",\\"red\\",\\"red\\"}"}
 \.
 
 
@@ -77,7 +74,7 @@ COPY public.gameboard (round, color) FROM stdin;
 -- Name: gameboard_round_seq; Type: SEQUENCE SET; Schema: public; Owner: Daddy
 --
 
-SELECT pg_catalog.setval('public.gameboard_round_seq', 3, true);
+SELECT pg_catalog.setval('public.gameboard_round_seq', 1, false);
 
 
 --
