@@ -2,12 +2,13 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.16 (Debian 13.16-0+deb11u1)
--- Dumped by pg_dump version 13.16 (Debian 13.16-1.pgdg110+1)
+-- Dumped from database version 17.5 (Homebrew)
+-- Dumped by pg_dump version 17.5 (Homebrew)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -26,7 +27,7 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.gameboard (
     round integer NOT NULL,
-    color text[] NOT NULL
+    color text[]
 );
 
 
@@ -45,7 +46,7 @@ CREATE SEQUENCE public.gameboard_round_seq
     CACHE 1;
 
 
-ALTER TABLE public.gameboard_round_seq OWNER TO "Daddy";
+ALTER SEQUENCE public.gameboard_round_seq OWNER TO "Daddy";
 
 --
 -- Name: gameboard_round_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Daddy
@@ -66,6 +67,9 @@ ALTER TABLE ONLY public.gameboard ALTER COLUMN round SET DEFAULT nextval('public
 --
 
 COPY public.gameboard (round, color) FROM stdin;
+1	{"{\\"yellow\\"}"}
+2	{"{\\"yellow\\",\\"red\\"}"}
+3	{"{\\"yellow\\",\\"red\\",\\"red\\"}"}
 \.
 
 
@@ -73,7 +77,7 @@ COPY public.gameboard (round, color) FROM stdin;
 -- Name: gameboard_round_seq; Type: SEQUENCE SET; Schema: public; Owner: Daddy
 --
 
-SELECT pg_catalog.setval('public.gameboard_round_seq', 1, false);
+SELECT pg_catalog.setval('public.gameboard_round_seq', 3, true);
 
 
 --
