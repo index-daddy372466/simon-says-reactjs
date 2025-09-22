@@ -10,8 +10,8 @@ Remmeber...do what simon says and have fun!
 ### Features: 
 
 1. Mobile & Desktop play
-2. Database (postgresql)
-
+2. Limited hints to help
+3. Loads of fun
 
 ### Languages & frameworks:
 
