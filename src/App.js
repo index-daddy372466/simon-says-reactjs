@@ -1,5 +1,4 @@
 import './App.css';
-import './MediaQuery.css';
 import { useState, useEffect, useRef } from 'react';
 import Header from './components/header.js'
 import Controls from './components/controls.js';
